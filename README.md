@@ -73,7 +73,7 @@ User will face set of 10-15 questions with increasing difficulty levels. Each qu
 * [x] setup router (Split App into App and InitView)
 * [x] create Rules route and add link from the main page
 * [x] Narrow Layout for Intro and Rules, children routes
-* [ ] create PlayView and add link from Intro
+* [x] create PlayView and add link from Intro
 * [ ] create functional Layout for PlayView using slots
 * [ ] load questions using API and created hook, add currency filter
 * [ ] Game and QuestionsBar components, props, move currency filter to global scope
