@@ -1,22 +1,29 @@
 <template>
   <PlayLayout>
-    <div slot="title" class="has-text-centered">
-      <h1 class="title">Currently won: <strong>{{ cash | currency }}</strong></h1>
-      <h2 class="subtitle">Round {{ currentRound + 1 }} of {{ maxRounds }}</h2>
-    </div>
-    <transition slot="main" name="flip" mode="out-in">
-      <play-window
-        class="box"
-        :currentQuestion="currentQuestion"
-        :loading="submitAnswerLoading"
-        :key="currentRound"
-        @submit="submitAnswer">
-      </play-window>
-    </transition>
-    <questions-window
-      slot="side"
-      :questions="questions.slice().reverse()">
-    </questions-window>
+    <template #title>
+      <div class="has-text-centered">
+        <h1 class="title">Currently won: <strong>{{ cash | currency }}</strong></h1>
+        <h2 class="subtitle">Round {{ currentRound + 1 }} of {{ maxRounds }}</h2>
+      </div>
+    </template>
+
+    <template #main>
+      <transition name="flip" mode="out-in">
+        <play-window
+          class="box"
+          :currentQuestion="currentQuestion"
+          :loading="submitAnswerLoading"
+          :key="currentRound"
+          @submit="submitAnswer">
+        </play-window>
+      </transition>
+    </template>
+
+    <template #side>
+      <questions-window
+        :questions="questions.slice().reverse()">
+      </questions-window>
+    </template>
   </PlayLayout>
 </template>
 
