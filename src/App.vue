@@ -1,6 +1,6 @@
 <template>
   <div class="c-main-container container is-widescreen">
-    <router-view></router-view>
+    <router-view ></router-view>
   </div>
 </template>
 

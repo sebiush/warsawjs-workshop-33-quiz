@@ -2,7 +2,7 @@
   <div class="has-text-centered box">
     <h1 class="title">Incorrect answer, you lost!</h1>
     <h2 class="subtitle">
-      Correct answer: ~~answer~~
+      Correct answer: {{ currentQuestion.answers[currentQuestion.correctAnswer] }}
     </h2>
     <hr>
     <div class="columns">
@@ -19,3 +19,13 @@
     </div>
   </div>
 </template>
+
+<script>
+  import {mapGetters} from 'vuex'
+
+  export default {
+    computed: mapGetters([
+      'currentQuestion'
+    ])
+  }
+</script>
