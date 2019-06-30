@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <style>
+        body {
+            padding: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <div id="app" v-cloak>
+        <textarea v-model="name"></textarea>
+        <div>Hello, {{ name.toLowerCase() }}!</div>
+        <div>My name is {{ name | capitalize }}!</div>
+        <div>My name is {{ capitalizedName }}!!!</div>
+        <div>We are {{people.join(', ')}}</div>
+        <ul v-for="(personName, index) in people">
+            <li>{{index + 1 }} {{ personName }}!</li>
+        </ul>
+        <div>
+            I'm {{ name === 'World' ? 'here!' : 'not :((('}}
+        </div>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    name: 'WORLD',
+                    people: [
+                        "Karolina",
+                        "Agata",
+                        "Piotr",
+                        "Jakub"
+                    ]
+                }
+            },
+            computed: {
+                capitalizedName() {
+                    return this.capitalize(this.name)
+                }
+            },
+            filters: {
+                capitalize(value) {
+                    return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
+                }
+            },
+            methods: {
+                capitalize(value) {
+                    return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
